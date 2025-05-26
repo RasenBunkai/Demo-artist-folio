@@ -1,6 +1,8 @@
 ---
 // import { ArrowDown, Palette, Star } from "lucide-react"
 import Palette from "./svg/Palette.astro";
+import Arrow from "./svg/Arrow.astro";
+import Star from "./svg/Star.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import Image from "astro/components/Image.astro";
 ---
@@ -43,18 +45,24 @@ import Image from "astro/components/Image.astro";
         </div>
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <button
-            class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full">
+          <a
+            class="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full"
+            href="#portfolio">
             Ver Portafolio
-            <!-- <ArrowDown class="ml-2 w-4 h-4" /> -->
-          </button>
-          <button
-            class="border-2 border-purple-300 hover:bg-purple-50 dark:border-purple-600 dark:hover:bg-purple-900/20 px-8 py-3 rounded-full">
+            <Arrow
+              className="group-hover:rotate-45 inline-block ml-2 size-4 transform transition-transform duration-200"
+            />
+          </a>
+          <a
+            href="#contact"
+            class="group bg-purple-200 text-purple-900 border-2 border-purple-300 hover:bg-purple-50 dark:border-purple-600 dark:hover:bg-purple-900/20 dark:text-white px-8 py-3 rounded-full items-center flex">
             Pedir Comisión
-            <!-- <Star class="ml-2 w-4 h-4" /> -->
-          </button>
+            <Star
+              className="group-hover:rotate-45 inline-block ml-2 size-4 transform transition-transform duration-200"
+            />
+          </a>
         </div>
-        <div class="flex justify-center lg:justify-start gap-8 pt-8">
+        <div class="flex justify-center lg:justify-center gap-8 pt-8">
           <div class="text-center">
             <div
               class="text-2xl font-bold text-purple-600 dark:text-purple-400">
@@ -70,15 +78,6 @@ import Image from "astro/components/Image.astro";
             </div>
             <div class="text-sm text-gray-600 dark:text-gray-400">
               Clientes Felices
-            </div>
-          </div>
-          <div class="text-center">
-            <div
-              class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-              5★
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">
-              Valoración
             </div>
           </div>
         </div>
