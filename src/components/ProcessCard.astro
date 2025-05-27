@@ -1,0 +1,29 @@
+---
+const {step, index, steps} = Astro.props;
+---
+
+<div
+  class="relative rounded-lg border border-purple-200 overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm dark:border-purple-700 hover:shadow-xl transition-all duration-300 hover:scale-105">
+  <div class="p-6 text-center">
+    <div
+      class={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white`}>
+      {step.icon && <step.icon class={step.iconClass} />}
+    </div>
+
+    <div
+      class={`text-3xl font-bold bg-gradient-to-r ${step.color} bg-clip-text text-transparent mb-3`}>
+      {step.number}
+    </div>
+
+    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">
+      {step.title}
+    </h3>
+
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed pb-8 font-medium">
+      {step.description}
+    </p>
+  </div>
+  <div
+    class="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-purple-300 to-pink-300 dark:from-purple-600 dark:to-pink-600">
+  </div>
+</div>
