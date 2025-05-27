@@ -1,0 +1,88 @@
+---
+import PricingCard from "./PricingCard.astro";
+import Sparkles from "./svg/Sparkles.astro";
+import Crown from "./svg/Crown.astro";
+import Zap from "./svg/Zap.astro";
+
+const pricingPlans = [
+  {
+    name: "Busto",
+    price: "$50",
+    icon: <Sparkles class="w-8 h-8" />,
+    description: "Retrato desde el pecho hacia arriba",
+    features: [
+      "Alta resolución (300 DPI)",
+      "Fondo simple incluido",
+      "2 revisiones incluidas",
+      "Entrega en 5-7 días",
+      "Formato PNG y JPG",
+    ],
+    popular: false,
+    gradient: "from-blue-500 to-purple-500",
+  },
+  {
+    name: "Medio Cuerpo",
+    price: "$85",
+    icon: <Crown class="w-8 h-8" />,
+    description: "Desde la cintura hacia arriba",
+    features: [
+      "Alta resolución (300 DPI)",
+      "Fondo detallado",
+      "3 revisiones incluidas",
+      "Entrega en 7-10 días",
+      "Múltiples formatos",
+      "Versión sin fondo",
+    ],
+    popular: true,
+    gradient: "from-purple-500 to-pink-500",
+  },
+  {
+    name: "Cuerpo Completo",
+    price: "$120",
+    icon: <Zap class="w-8 h-8" />,
+    description: "Personaje completo con escenario",
+    features: [
+      "Ultra alta resolución",
+      "Escenario personalizado",
+      "Revisiones ilimitadas",
+      "Entrega en 10-14 días",
+      "Todos los formatos",
+      "Proceso de trabajo incluido",
+      "Derechos comerciales",
+    ],
+    popular: false,
+    gradient: "from-pink-500 to-red-500",
+  },
+];
+---
+
+<section
+  id="pricing"
+  class="py-20 px-4 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <h2
+        class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+        Precios de Comisiones
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Planes transparentes y justos para cada tipo de proyecto
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {pricingPlans.map((plan) => <PricingCard plan={plan} />)}
+    </div>
+  </div>
+
+  <div
+    class="text-center mt-12 p-6 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl">
+    <p class="text-gray-700 dark:text-gray-300 mb-2">
+      <strong>¿Necesitas algo personalizado?</strong>
+    </p>
+    <p class="text-gray-600 dark:text-gray-400">
+      Contáctame para proyectos especiales, ilustraciones comerciales o paquetes
+      personalizados
+    </p>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+---
+import Check from "./svg/Check.astro";
+
+const {plan} = Astro.props;
+---
+
+<div
+  class={`relative h-full flex flex-col overflow-hidden bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-2 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${
+    plan.popular
+      ? "border-purple-400 dark:border-purple-500 shadow-lg shadow-purple-200 dark:shadow-purple-900/30"
+      : "border-purple-200 dark:border-purple-700 hover:border-purple-300 dark:hover:border-purple-600"
+  }`}>
+  <!-- Popular badge -->
+  {
+    plan.popular && (
+      <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-2 text-sm font-medium tracking-wide">
+        ⭐ Más Popular
+      </div>
+    )
+  }
+
+  <!-- Card content -->
+  <div
+    class={`flex-1 flex flex-col ${plan.popular ? "pt-16" : "pt-8"} px-6 pb-6`}>
+    <!-- Header -->
+    <div class="text-center">
+      <div
+        class={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${plan.gradient} flex items-center justify-center text-white shadow-md`}>
+        {plan.icon}
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-1">
+        {plan.name}
+      </h3>
+      <div
+        class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+        {plan.price}
+      </div>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">{plan.description}</p>
+    </div>
+
+    <!-- Features -->
+    <ul class="mt-8 space-y-3 flex-1">
+      {
+        plan.features.map((feature: string) => (
+          <li class="flex items-start gap-3">
+            <Check class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+            <span class="text-gray-700 dark:text-gray-300 text-sm">
+              {feature}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Button -->
+    <button
+      class={`mt-8 w-full py-3 px-6 rounded-full font-medium transition-all duration-300 ${
+        plan.popular
+          ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-md hover:shadow-lg"
+          : "bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-400 border border-purple-500 dark:border-purple-400 hover:bg-purple-50 dark:hover:bg-gray-600"
+      }`}>
+      Solicitar Comisión
+    </button>
+  </div>
+</div>
+
+<style>
+  .pricing-card {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-5px);
+  }
+</style>
