@@ -1,8 +1,20 @@
 @import "tailwindcss";
-html.dark {
-    background: linear-gradient(to bottom right, #0f172a, #31215e, #000000);
+html,
+body {
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
 }
-html.light {
-    background: linear-gradient(to bottom right, #f3e8ff, #fce7f3, #c7d2fe);
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to bottom right, #f3e8ff, #fce7f3, #d1d9f7);
+  transition: background 0.3s;
+}
+html.dark body::before {
+  background: linear-gradient(to bottom right, #0f172a, #31215e, #000000);
 }
 @custom-variant dark (&:where(.dark, .dark *));

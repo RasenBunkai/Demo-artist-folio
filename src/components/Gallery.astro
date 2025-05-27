@@ -2,42 +2,89 @@
 import Card from "../components/Card.astro";
 
 const artworks = [
-    { id: 1, title: "Retrato Fantástico", category: "Retrato", image: "/placeholder.svg?height=400&width=400" },
-    { id: 2, title: "Paisaje Onírico", category: "Paisaje", image: "/placeholder.svg?height=400&width=400" },
-    { id: 3, title: "Personaje Original", category: "Personaje", image: "/placeholder.svg?height=400&width=400" },
-    { id: 4, title: "Ilustración Digital", category: "Ilustración", image: "/placeholder.svg?height=400&width=400" },
-    { id: 5, title: "Arte Conceptual", category: "Concepto", image: "/placeholder.svg?height=400&width=400" },
-    { id: 6, title: "Diseño de Personaje", category: "Personaje", image: "/placeholder.svg?height=400&width=400" },
-    { id: 7, title: "Ambiente Mágico", category: "Paisaje", image: "/placeholder.svg?height=400&width=400" },
-    { id: 8, title: "Retrato Estilizado", category: "Retrato", image: "/placeholder.svg?height=400&width=400" },
+  {
+    id: 1,
+    title: "Retrato Fantástico",
+    category: "Retrato",
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 2,
+    title: "Paisaje Onírico",
+    category: "Paisaje",
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 3,
+    title: "Personaje Original",
+    category: "Personaje",
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 4,
+    title: "Ilustración Digital",
+    category: "Ilustración",
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 5,
+    title: "Arte Conceptual",
+    category: "Concepto",
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 6,
+    title: "Diseño de Personaje",
+    category: "Personaje",
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 7,
+    title: "Ambiente Mágico",
+    category: "Paisaje",
+    image: "/placeholder.svg?height=400&width=400",
+  },
+  {
+    id: 8,
+    title: "Retrato Estilizado",
+    category: "Retrato",
+    image: "/placeholder.svg?height=400&width=400",
+  },
 ];
 ---
 
-<section id="portfolio" class="py-20 px-4">
-    <div class="container mx-auto max-w-7xl">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
-                Mi Portafolio
-            </h2>
-            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Una selección de mis trabajos más recientes y representativos
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {artworks.map((artwork) => (
-                <Card 
-                    artwork={artwork} 
-                    key={artwork.id}
-                    class="transition-transform duration-300 hover:scale-105 hover:shadow-lg"
-                />
-            ))}
-        </div>
-
-        <div class="text-center mt-12">
-            <button class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg">
-                Ver Más Trabajos
-            </button>
-        </div>
+<section id="portfolio" class="py-20 px-4 bg-transparent">
+  <div class="container mx-auto max-w-7xl">
+    <div class="text-center mb-16">
+      <h2
+        class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+        Mi Portafolio
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Una selección de mis trabajos más recientes y representativos
+      </p>
     </div>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {
+        artworks.map((artwork) => (
+          <Card
+            artwork={artwork}
+            key={artwork.id}
+            class="transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+          />
+        ))
+      }
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href="/"
+        target="_blank"
+        class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg">
+        Ver Más Trabajos
+      </a>
+    </div>
+  </div>
 </section>
