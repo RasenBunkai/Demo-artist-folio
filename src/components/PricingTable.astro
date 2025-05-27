@@ -1,14 +1,15 @@
 ---
 import PricingCard from "./PricingCard.astro";
 import Sparkles from "./svg/Sparkles.astro";
-import Crown from "./svg/Crown.astro";
+import Fire from "./svg/Fire.astro";
 import Zap from "./svg/Zap.astro";
 
 const pricingPlans = [
   {
     name: "Busto",
     price: "$50",
-    icon: <Sparkles class="w-8 h-8" />,
+    icon: Sparkles,
+    iconClass: "size-8",
     description: "Retrato desde el pecho hacia arriba",
     features: [
       "Alta resolución (300 DPI)",
@@ -23,7 +24,8 @@ const pricingPlans = [
   {
     name: "Medio Cuerpo",
     price: "$85",
-    icon: <Crown class="w-8 h-8" />,
+    icon: Fire,
+    iconClass: "size-8",
     description: "Desde la cintura hacia arriba",
     features: [
       "Alta resolución (300 DPI)",
@@ -39,7 +41,8 @@ const pricingPlans = [
   {
     name: "Cuerpo Completo",
     price: "$120",
-    icon: <Zap class="w-8 h-8" />,
+    icon: Zap,
+    iconClass: "size-8",
     description: "Personaje completo con escenario",
     features: [
       "Ultra alta resolución",
