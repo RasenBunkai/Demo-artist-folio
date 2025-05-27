@@ -14,10 +14,10 @@ import Image from "astro/components/Image.astro";
   </div>
   <div class="absolute inset-0 overflow-hidden">
     <div
-      class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300/30 rounded-full blur-3xl animate-pulse">
+      class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300/70 rounded-full blur-3xl animate-pulse">
     </div>
     <div
-      class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl animate-pulse delay-1000">
+      class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-300/70 rounded-full blur-3xl animate-pulse delay-1000">
     </div>
   </div>
   <div class="container mx-auto max-w-6xl relative z-10">
@@ -36,7 +36,7 @@ import Image from "astro/components/Image.astro";
             Luna Artística
           </h1>
           <p
-            class="text-xl md:text-2xl text-gray-600 max-w-2xl dark:text-gray-300">
+            class="text-xl md:text-2xl text-gray-600 max-w-2xl dark:text-white">
             Creando mundos digitales únicos donde la imaginación cobra vida.
             <span class="block mt-2 text-lg italic">
               "Cada trazo cuenta una historia, cada color despierta emociones"
@@ -46,7 +46,7 @@ import Image from "astro/components/Image.astro";
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <a
-            class="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full"
+            class="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full font-medium"
             href="#portfolio">
             Ver Portafolio
             <Arrow
@@ -55,7 +55,7 @@ import Image from "astro/components/Image.astro";
           </a>
           <a
             href="#contact"
-            class="group bg-purple-200 text-purple-900 border-2 border-purple-300 hover:bg-purple-50 dark:border-purple-600 dark:hover:bg-purple-900/20 dark:text-white px-8 py-3 rounded-full items-center flex">
+            class="group text-purple-900 border-2 border-purple-300 hover:bg-purple-50 dark:border-purple-600 dark:hover:bg-purple-900/20 dark:text-white px-8 py-3 rounded-full items-center flex font-medium">
             Pedir Comisión
             <Star
               className="group-hover:rotate-45 inline-block ml-2 size-4 transform transition-transform duration-200"
@@ -93,10 +93,10 @@ import Image from "astro/components/Image.astro";
             width={500}
             height={600}
             class="relative z-10 w-full max-h-[700px] rounded-3xl shadow-2xl overflow-hidden object-cover"
+            loading="eager"
           />
         </div>
       </div>
     </div>
   </div>
 </section>
-)

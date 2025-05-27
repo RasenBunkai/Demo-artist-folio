@@ -1,0 +1,25 @@
+---
+import Image from "astro/components/Image.astro";
+const { artwork } = Astro.props;
+const { id, title, category } = artwork;
+---
+
+<div
+  class="group overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-purple-200 dark:border-purple-700 hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-lg">
+  <div class="relative aspect-square overflow-hidden">
+    <Image
+      src={artwork.image || "/placeholder.svg"}
+      alt={artwork.title}
+      width={400}
+      height={400}
+      class="object-cover transition-transform duration-300 group-hover:scale-110"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div class="absolute bottom-4 left-4 right-4 text-white">
+        <h3 class="font-semibold text-lg">{artwork.title}</h3>
+        <p class="text-sm text-purple-200">{artwork.category}</p>
+      </div>
+    </div>
+  </div>
+</div>

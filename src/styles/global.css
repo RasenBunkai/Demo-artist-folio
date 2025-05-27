@@ -1,7 +1,8 @@
 @import "tailwindcss";
 html.dark {
-    background: linear-gradient(to bottom right, #0f172a, #111827, #000000);
+    background: linear-gradient(to bottom right, #0f172a, #31215e, #000000);
 }
 html.light {
     background: linear-gradient(to bottom right, #f3e8ff, #fce7f3, #c7d2fe);
 }
+@custom-variant dark (&:where(.dark, .dark *));
