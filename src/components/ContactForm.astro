@@ -1,77 +1,96 @@
 ---
-import Clock from "./svg/Clock.astro"
-import Mail from "./svg/Mail.astro"
-import Form from "./Form.astro"
+import Clock from "./svg/Clock.astro";
+import Mail from "./svg/Mail.astro";
+import Form from "./Form.astro";
 ---
-    <section id="contact" class="py-20 px-4">
-      <div class="container mx-auto max-w-6xl">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
-            Solicita tu Comisión
-          </h2>
-          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Cuéntame sobre tu proyecto y hagamos realidad tu visión artística
-          </p>
-        </div>
-        <div class="grid lg:grid-cols-2 gap-12">
-          <Form/>
-          <div class="space-y-8">
-            <div class="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-lg">
-              <div class="p-8">
-                <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <Mail className="size-7" />
-                  Información de Contacto
-                </h3>
-                <div class="space-y-4">
-                  <div>
-                    <h4 class="font-semibold mb-1">Email</h4>
-                    <p class="opacity-90">luna.artistica@email.com</p>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold mb-1">Tiempo de Respuesta</h4>
-                    <p class="opacity-90">24-48 horas</p>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold mb-1">Horario de Trabajo</h4>
-                    <p class="opacity-90">Lun - Vie: 9:00 AM - 6:00 PM (GMT-5)</p>
-                  </div>
-                </div>
+
+<section
+  id="contact"
+  class="py-16 px-4 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <h2
+        class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+        Solicita tu Comisión
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Cuéntame sobre tu proyecto y hagamos realidad tu visión artística
+      </p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-12">
+      <Form />
+      <div class="space-y-8">
+        <div
+          class="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-lg">
+          <div class="p-8">
+            <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+              <Mail className="size-7" />
+              Información de Contacto
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold mb-1">Email</h4>
+                <p class="opacity-90">luna.artistica@email.com</p>
               </div>
-            </div>
-            <div class="rounded-lg border bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-purple-200 dark:border-purple-700">
-              <div class="p-6">
-                <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
-                  <Clock className="size-6 text-purple-600" />
-                  Proceso de Solicitud
-                </h3>
-                <div class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-                  <div class="flex items-start gap-2">
-                    <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <p>Envía tu solicitud con todos los detalles posibles</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <p>Te responderé en 24-48 horas con una cotización detallada</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <p>Una vez acordados los términos, comenzamos el proyecto</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <p>Pago: 50% al inicio, 50% al finalizar</p>
-                  </div>
-                </div>
+              <div>
+                <h4 class="font-semibold mb-1">Tiempo de Respuesta</h4>
+                <p class="opacity-90">24-48 horas</p>
               </div>
-            </div>
-            <div class="border border-purple-200 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl p-6">
-              <h3 class="font-bold text-gray-800 dark:text-gray-200 mb-2">💡 Consejo para mejores resultados</h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">
-                Incluye referencias visuales, describe el estilo que buscas y menciona cualquier detalle específico.
-                ¡Mientras más información compartas, mejor podré capturar tu visión!
-              </p>
+              <div>
+                <h4 class="font-semibold mb-1">Horario de Trabajo</h4>
+                <p class="opacity-90">Lun - Vie: 9:00 AM - 6:00 PM (GMT-5)</p>
+              </div>
             </div>
           </div>
         </div>
+        <div
+          class="rounded-lg border bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-purple-200 dark:border-purple-700">
+          <div class="p-6">
+            <h3
+              class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+              <Clock className="size-6 text-purple-600" />
+              Proceso de Solicitud
+            </h3>
+            <div class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+              <div class="flex items-start gap-2">
+                <div
+                  class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0">
+                </div>
+                <p>Envía tu solicitud con todos los detalles posibles</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <div
+                  class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0">
+                </div>
+                <p>Te responderé en 24-48 horas con una cotización detallada</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <div
+                  class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0">
+                </div>
+                <p>Una vez acordados los términos, comenzamos el proyecto</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <div
+                  class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0">
+                </div>
+                <p>Pago: 50% al inicio, 50% al finalizar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border border-purple-200 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl mb-6 p-6">
+          <h3 class="font-bold text-gray-800 dark:text-gray-200 mb-2">
+            💡 Consejo para mejores resultados
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            Incluye referencias visuales, describe el estilo que buscas y
+            menciona cualquier detalle específico. ¡Mientras más información
+            compartas, mejor podré capturar tu visión!
+          </p>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>

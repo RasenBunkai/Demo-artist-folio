@@ -1,14 +1,12 @@
 ---
-// import { ArrowDown, Palette, Star } from "lucide-react"
 import Palette from "./svg/Palette.astro";
 import Arrow from "./svg/Arrow.astro";
 import Star from "./svg/Star.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import Image from "astro/components/Image.astro";
 ---
-
 <section
-  class="relative min-h-screen flex items-center justify-center px-4 py-20 bg-transparent">
+  class=" relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90">
   <div class="absolute top-6 right-6 z-10">
     <ThemeToggle />
   </div>
@@ -55,7 +53,7 @@ import Image from "astro/components/Image.astro";
           </a>
           <a
             href="#contact"
-            class="group text-purple-900 border-2 border-purple-300 hover:bg-purple-50 dark:border-purple-600 dark:hover:bg-purple-900/20 dark:text-white px-8 py-3 rounded-full items-center flex font-medium">
+            class="group text-purple-900 border-2 border-purple-300 hover:bg-purple-50 dark:border-purple-600 dark:hover:bg-purple-900/20 dark:text-white px-8 py-3 rounded-full items-center font-medium">
             Pedir Comisión
             <Star
               className="group-hover:rotate-45 inline-block ml-2 size-4 transform transition-transform duration-200"

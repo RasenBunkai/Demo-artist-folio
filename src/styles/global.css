@@ -5,7 +5,7 @@ body {
   height: 100%;
   position: relative;
 }
-body::before {
+/* body::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -16,5 +16,13 @@ body::before {
 }
 html.dark body::before {
   background: linear-gradient(to bottom right, #0f172a, #31215e, #000000);
+} */
+/* body {
+  background: linear-gradient(to bottom right, #f3e8ff, #fce7f3, #d1d9f7);
+
 }
+html.dark body {
+  background: linear-gradient(to bottom right, #0f172a, #31215e, #000000);
+} */
+
 @custom-variant dark (&:where(.dark, .dark *));

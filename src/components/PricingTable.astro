@@ -61,31 +61,31 @@ const pricingPlans = [
 
 <section
   id="pricing"
-  class="py-20 px-4 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm">
+  class="py-16 px-4 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90">
   <div class="container mx-auto max-w-6xl">
-    <div class="text-center mb-16">
+    <div class="text-center mb-14">
       <h2
-        class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+        class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-3">
         Precios de Comisiones
       </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-        Planes transparentes y justos para cada tipo de proyecto
+      <p
+        class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Planes transparentes y justos para cada tipo de proyecto.
       </p>
     </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      {pricingPlans.map((plan) => <PricingCard plan={plan} />)}
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {pricingPlans.map((plan) => <PricingCard plan={plan} key={plan.name} />)}
     </div>
   </div>
-
   <div
-    class="container mx-auto max-w-6xl text-center mt-12 p-6 bg-gradient-to-r from-purple-200 to-pink-200 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl">
-    <p class="text-gray-700 dark:text-gray-300 mb-2 text-xl">
-      <strong>¿Necesitas algo personalizado?</strong>
+    class="container mx-auto max-w-4xl text-center mt-14 p-6 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/40 dark:to-pink-900/40 rounded-2xl shadow-lg">
+    <p
+      class="text-gray-800 dark:text-gray-200 mb-2 text-lg md:text-xl font-semibold">
+      ¿Necesitas algo personalizado?
     </p>
-    <p class="text-gray-600 dark:text-gray-400">
+    <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg">
       Contáctame para proyectos especiales, ilustraciones comerciales o paquetes
-      personalizados
+      personalizados.
     </p>
   </div>
 </section>
