@@ -1,69 +1,81 @@
 ---
-import ProcessCard from "./ProcessCard.astro"
-import Chat from "./svg/Chat.astro"
-import Brush from "./svg/Brush.astro"
-import Eye from "./svg/Eye.astro"
-import Download from "./svg/Download.astro"
-
+import ProcessCard from "./ProcessCard.astro";
+import Chat from "./svg/Chat.astro";
+import Brush from "./svg/Brush.astro";
+import Eye from "./svg/Eye.astro";
+import Download from "./svg/Download.astro";
 const steps = [
   {
     number: "01",
     title: "Consulta Inicial",
-    description: "Conversamos sobre tu idea, referencias y detalles específicos del proyecto",
+    description:
+      "Conversamos sobre tu idea, referencias y detalles específicos del proyecto",
     icon: Chat,
     color: "from-blue-500 to-purple-500",
   },
   {
     number: "02",
     title: "Boceto y Aprobación",
-    description: "Creo un boceto inicial para confirmar la composición y el concepto",
+    description:
+      "Creo un boceto inicial para confirmar la composición y el concepto",
     icon: Brush,
     color: "from-purple-500 to-pink-500",
   },
   {
     number: "03",
     title: "Desarrollo y Revisiones",
-    description: "Trabajo en los detalles finales con revisiones incluidas según el plan",
+    description:
+      "Trabajo en los detalles finales con revisiones incluidas según el plan",
     icon: Eye,
     color: "from-pink-500 to-red-500",
   },
   {
     number: "04",
     title: "Entrega Final",
-    description: "Recibes tu obra en alta resolución y todos los formatos acordados",
+    description:
+      "Recibes tu obra en alta resolución y todos los formatos acordados",
     icon: Download,
     color: "from-red-500 to-orange-500",
   },
-]
+];
 ---
+
 <section id="process" class="py-20 px-4">
-      <div class="container mx-auto max-w-6xl">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
-            Proceso de Trabajo
-          </h2>
-          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Un proceso claro y transparente para garantizar que obtengas exactamente lo que imaginas
-          </p>
-        </div>
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <h2
+        class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+        Proceso de Trabajo
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Un proceso claro y transparente para garantizar que obtengas exactamente
+        lo que imaginas
+      </p>
+    </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <ProcessCard key={index} step={step} />
-          ))}
-        </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {steps.map((step, index) => <ProcessCard key={index} step={step} />)}
+    </div>
 
-        <div class="text-center mt-16">
-          <div class="bg-gradient-to-r from-purple-200 to-pink-200 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl p-8">
-            <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">¿Listo para comenzar?</h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto text-lg">
-              El proceso completo suele tomar entre 5-14 días dependiendo de la complejidad. Mantengo comunicación
-              constante para asegurar tu satisfacción total.
-            </p>
-            <a href="#Contact" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg">
-              Iniciar Proyecto
-            </a>
-          </div>
-        </div>
+    <div class="text-center mt-16">
+      <div
+        class="bg-gradient-to-r from-purple-200 to-pink-200 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl p-8">
+        <h3
+          class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+          ¿Listo para comenzar?
+        </h3>
+        <p
+          class="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto text-lg">
+          El proceso completo suele tomar entre 5-14 días dependiendo de la
+          complejidad. Mantengo comunicación constante para asegurar tu
+          satisfacción total.
+        </p>
+        <a
+          href="#Contact"
+          class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg">
+          Iniciar Proyecto
+        </a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
