@@ -4,9 +4,13 @@ import Arrow from "./svg/Arrow.astro";
 import Star from "./svg/Star.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import Image from "astro/components/Image.astro";
+
+const available = true;
+const waitList = [{date: new Date("2024-06-10")}];
 ---
+
 <section
-  class=" relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90">
+  class="relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90">
   <div class="absolute top-6 right-6 z-10">
     <ThemeToggle />
   </div>
@@ -28,6 +32,17 @@ import Image from "astro/components/Image.astro";
             <span class="text-sm font-medium tracking-wide uppercase"
               >Artista Digital</span
             >
+            {
+              available ? (
+                <span class="inline-block px-3 py-1 rounded-full bg-green-100 text-green-800 text-sm font-semibold shadow-sm">
+                  ¡Abierto a comisiones!
+                </span>
+              ) : (
+                <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-800 text-sm font-semibold shadow-sm">
+                  No disponible para comisiones
+                </span>
+              )
+            }
           </div>
           <h1
             class="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
@@ -76,6 +91,22 @@ import Image from "astro/components/Image.astro";
             </div>
             <div class="text-sm text-gray-600 dark:text-gray-400">
               Clientes Felices
+            </div>
+          </div>
+          <div class="text-center">
+            {
+              waitList.map((item) => (
+                <div class="text-2xl font-bold text-pink-600 dark:text-pink-400">
+                  {item.date.toLocaleDateString("es-ES", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </div>
+              ))
+            }
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              Lista de espera aprox
             </div>
           </div>
         </div>
