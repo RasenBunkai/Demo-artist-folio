@@ -1,43 +1,63 @@
 ---
-import Check from "./svg/Check.astro";
-const {plan} = Astro.props;
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { CheckCircle2 } from "lucide-react";
+
+const { plan } = Astro.props;
+const Icon = plan.icon;
 ---
 
-<div
-  class={`relative h-full flex flex-col overflow-hidden bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-2 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${
+<Card
+  className={`relative h-full border-2 bg-white/70 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-gray-800/70 ${
     plan.popular
-      ? "border-purple-400 dark:border-purple-500 shadow-lg shadow-purple-200 dark:shadow-purple-900/30"
-      : "border-purple-200 dark:border-purple-700 hover:border-purple-300 dark:hover:border-purple-600"
-  }`}>
+      ? "border-purple-400 shadow-purple-200 dark:border-purple-500 dark:shadow-purple-900/30"
+      : "border-purple-200 hover:border-purple-300 dark:border-purple-700 dark:hover:border-purple-600"
+  }`}
+>
   {
     plan.popular && (
-      <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-2 text-sm font-medium tracking-wide">
-        ⭐ Más Popular
+      <div class="absolute left-0 right-0 top-0 flex justify-center">
+        <Badge className="rounded-t-none rounded-b-xl bg-gradient-to-r from-purple-500 to-pink-500 px-4 text-white shadow-sm hover:from-purple-500 hover:to-pink-500">
+          Más Popular
+        </Badge>
       </div>
     )
   }
-  <div
-    class={`flex-1 flex flex-col ${plan.popular ? "pt-16" : "pt-8"} px-6 pb-6`}>
-    <!-- Header -->
-    <div class="text-center">
-      <div
-        class={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${plan.gradient} flex items-center justify-center text-white shadow-md`}>
-        {plan.icon && <plan.icon class={plan.iconClass} />}
-      </div>
-      <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-1">
-        {plan.name}
-      </h3>
-      <div
-        class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-        {plan.price}
-      </div>
-      <p class="text-gray-600 dark:text-gray-400 text-lg font-medium">{plan.description}</p>
+  <CardHeader
+    className={`items-center text-center ${plan.popular ? "pt-10" : ""}`}
+  >
+    <div
+      class={`mb-1 flex size-16 items-center justify-center rounded-full bg-gradient-to-r ${plan.gradient} text-white shadow-md`}
+    >
+      <Icon className="size-8" />
     </div>
-    <ul class="mt-8 space-y-3 flex-1">
+    <CardTitle className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+      {plan.name}
+    </CardTitle>
+    <div
+      class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+    >
+      {plan.price}
+    </div>
+    <CardDescription
+      className="text-lg font-medium text-gray-600 dark:text-gray-400"
+    >
+      {plan.description}
+    </CardDescription>
+  </CardHeader>
+  <CardContent className="flex flex-1 flex-col px-6 pb-6">
+    <ul class="my-4 space-y-3 flex-1">
       {
         plan.features.map((feature: string) => (
           <li class="flex items-start gap-3">
-            <Check/>
+            <CheckCircle2 className="mt-0.5 size-5 flex-shrink-0 text-purple-600 dark:text-purple-400" />
             <span class="text-gray-700 dark:text-gray-300 text-md font-medium">
               {feature}
             </span>
@@ -45,25 +65,15 @@ const {plan} = Astro.props;
         ))
       }
     </ul>
-    <button
-      class={`mt-8 w-full py-3 px-6 rounded-full font-medium transition-all duration-300 ${
+    <a
+      href="#contact"
+      class={`p-2 h-fit w-full rounded-full text-center text-lg ${
         plan.popular
-          ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-md hover:shadow-lg"
-          : "bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-400 border border-purple-500 dark:border-purple-400 hover:bg-purple-50 dark:hover:bg-gray-600"
-      }`}>
+          ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md hover:from-purple-700 hover:to-pink-700 hover:shadow-lg"
+          : "border-purple-500 bg-white text-purple-600 hover:bg-purple-50 dark:border-purple-400 dark:bg-gray-700 dark:text-purple-300 dark:hover:bg-gray-600"
+      }`}
+    >
       Solicitar Comisión
-    </button>
-  </div>
-</div>
-
-<style>
-  .pricing-card {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .pricing-card:hover {
-    transform: translateY(-5px);
-  }
-</style>
+    </a>
+  </CardContent>
+</Card>

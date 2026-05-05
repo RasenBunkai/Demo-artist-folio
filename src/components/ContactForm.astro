@@ -1,7 +1,14 @@
 ---
-import Clock from "./svg/Clock.astro";
-import Mail from "./svg/Mail.astro";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import Form from "./Form.astro";
+import { Clock, Lightbulb, Mail, Send } from "lucide-react";
 ---
 
 <section
@@ -20,9 +27,9 @@ import Form from "./Form.astro";
     <div class="grid lg:grid-cols-2 gap-12">
       <Form />
       <div class="space-y-8">
-        <div
-          class="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-lg">
-          <div class="p-8">
+        <Card
+          className="border-0 bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg">
+          <CardContent className="p-8">
             <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
               <Mail className="size-7" />
               Información de Contacto
@@ -32,64 +39,63 @@ import Form from "./Form.astro";
                 <h4 class="font-semibold mb-1">Email</h4>
                 <p class="opacity-90">luna.artistica@email.com</p>
               </div>
+              <Separator className="bg-white/20" />
               <div>
                 <h4 class="font-semibold mb-1">Tiempo de Respuesta</h4>
                 <p class="opacity-90">24-48 horas</p>
               </div>
+              <Separator className="bg-white/20" />
               <div>
                 <h4 class="font-semibold mb-1">Horario de Trabajo</h4>
                 <p class="opacity-90">Lun - Vie: 9:00 AM - 6:00 PM (GMT-5)</p>
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="rounded-lg border bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-purple-200 dark:border-purple-700">
-          <div class="p-6">
-            <h3
-              class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
-              <Clock className="size-6 text-purple-600" />
+          </CardContent>
+        </Card>
+
+        <Card
+          className="border-purple-200 bg-white/70 backdrop-blur-sm dark:border-purple-700 dark:bg-gray-800/70">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-xl font-bold text-gray-800 dark:text-gray-200">
+              <Clock className="size-6 text-purple-600 dark:text-purple-400" />
               Proceso de Solicitud
-            </h3>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
             <div class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-              <div class="flex items-start gap-2">
-                <div
-                  class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0">
-                </div>
-                <p>Envía tu solicitud con todos los detalles posibles</p>
-              </div>
-              <div class="flex items-start gap-2">
-                <div
-                  class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0">
-                </div>
-                <p>Te responderé en 24-48 horas con una cotización detallada</p>
-              </div>
-              <div class="flex items-start gap-2">
-                <div
-                  class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0">
-                </div>
-                <p>Una vez acordados los términos, comenzamos el proyecto</p>
-              </div>
-              <div class="flex items-start gap-2">
-                <div
-                  class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0">
-                </div>
-                <p>Pago: 50% al inicio, 50% al finalizar</p>
-              </div>
+              {
+                [
+                  "Envía tu solicitud con todos los detalles posibles",
+                  "Te responderé en 24-48 horas con una cotización detallada",
+                  "Una vez acordados los términos, comenzamos el proyecto",
+                  "Pago: 50% al inicio, 50% al finalizar",
+                ].map((item) => (
+                  <div class="flex items-start gap-3">
+                    <Send className="mt-0.5 size-4 flex-shrink-0 text-purple-600 dark:text-purple-400" />
+                    <p>{item}</p>
+                  </div>
+                ))
+              }
             </div>
-          </div>
-        </div>
-        <div
-          class="border border-purple-200 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl mb-6 p-6">
-          <h3 class="font-bold text-gray-800 dark:text-gray-200 mb-2">
-            💡 Consejo para mejores resultados
-          </h3>
-          <p class="text-gray-600 dark:text-gray-400 text-sm">
-            Incluye referencias visuales, describe el estilo que buscas y
-            menciona cualquier detalle específico. ¡Mientras más información
-            compartas, mejor podré capturar tu visión!
-          </p>
-        </div>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="border-purple-200 bg-gradient-to-r from-purple-100 to-pink-100 dark:border-purple-700 dark:from-purple-900/30 dark:to-pink-900/30">
+          <CardContent className="p-6">
+            <div class="mb-3 flex items-center gap-2">
+              <Lightbulb className="size-5 text-purple-600 dark:text-purple-300" />
+              <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-100 dark:bg-purple-500/15 dark:text-purple-200">
+                Consejo para mejores resultados
+              </Badge>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              Incluye referencias visuales, describe el estilo que buscas y
+              menciona cualquier detalle específico. Mientras más información
+              compartas, mejor podré capturar tu visión.
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </div>
   </div>

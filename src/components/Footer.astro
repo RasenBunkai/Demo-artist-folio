@@ -1,10 +1,28 @@
 ---
-import Palette from "./svg/Palette.astro";
-import Instagram from "./svg/Instagram.astro";
-import Twitter from "./svg/Twitter.astro";
-import Youtube from "./svg/Youtube.astro";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { ArrowUpRight,Palette } from "lucide-react";
 import Tiktok from "./svg/Tiktok.astro";
-import Arrow from "./svg/Arrow.astro";
+import Youtube from "./svg/Youtube.astro";
+import Twitter from "./svg/Twitter.astro";
+import Instagram from "./svg/Instagram.astro";
+
+const links = [
+  { label: "Portafolio", href: "#portfolio" },
+  { label: "Precios", href: "#pricing" },
+  { label: "Lineamientos", href: "#guidelines" },
+  { label: "Pagos", href: "#payments" },
+  { label: "Proceso", href: "#process" },
+  { label: "Contacto", href: "#contact" },
+];
+
+const services = [
+  "Retratos Digitales",
+  "Diseño de Personajes",
+  "Ilustraciones",
+  "Arte Conceptual",
+  "Comisiones Personalizadas",
+];
 ---
 
 <footer
@@ -18,7 +36,7 @@ import Arrow from "./svg/Arrow.astro";
             <Palette className="size-6" />
           </div>
           <h3
-            class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent dark:from-purple-400 dark:to-pink-400">
             Luna Artística
           </h3>
         </div>
@@ -26,43 +44,43 @@ import Arrow from "./svg/Arrow.astro";
           Creando arte digital único que da vida a tus ideas más creativas. Cada
           proyecto es una nueva aventura artística.
         </p>
-        <div class="flex gap-4">
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            aria-label="Instagram"
-            class="group w-10 h-10 flex items-center justify-center">
-            <Instagram class="group-hover:-translate-y-1 transition size-6">
-              <!-- <title>Instagram</title> -->
-            </Instagram>
-          </a>
-          <a
-            href="https://x.com/home"
-            target="_blank"
-            aria-label="Twitter"
-            class="group w-10 h-10 flex items-center justify-center">
-            <Twitter class="group-hover:-translate-y-1 transition size-5">
-              <!-- <title>Twitter</title> -->
-            </Twitter>
-          </a>
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            aria-label="YouTube"
-            class="group w-10 h-10 flex items-center justify-center">
-            <Youtube class="group-hover:-translate-y-1 transition size-7">
-              <!-- <title>YouTube</title> -->
-            </Youtube>
-          </a>
-          <a
-            href="https://www.tiktok.com/"
-            target="_blank"
-            aria-label="TikTok"
-            class="group w-10 h-10 flex items-center justify-center">
-            <Tiktok class="group-hover:-translate-y-1 transition size-6">
-              <!-- <title>TikTok</title> -->
-            </Tiktok>
-          </a>
+        <div class="flex gap-3">
+          <Button
+            asChild
+            variant="ghost"
+            size="icon-lg"
+            className="rounded-full text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-300">
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+              <Instagram className="size-5" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="ghost"
+            size="icon-lg"
+            className="rounded-full text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-300">
+            <a href="https://x.com/home" target="_blank" aria-label="X">
+              <Twitter className="size-5" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="ghost"
+            size="icon-lg"
+            className="rounded-full text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-300">
+            <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+              <Youtube className="size-5" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="ghost"
+            size="icon-lg"
+            className="rounded-full text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-300">
+            <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
+              <Tiktok className="size-5" />
+            </a>
+          </Button>
         </div>
       </div>
       <div>
@@ -70,47 +88,18 @@ import Arrow from "./svg/Arrow.astro";
           Enlaces Rápidos
         </h4>
         <ul class="space-y-2">
-          <li>
-            <a
-              href="#portfolio"
-              class="group text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-              Portafolio
-              <span class="ml-2 inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <Arrow className="group-hover:-rotate-45 size-4 transform transition-transform duration-200" />
-              </span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#pricing"
-              class="group text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-              Precios
-              <span class="ml-2 inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <Arrow className="group-hover:-rotate-45 size-4 transform transition-transform duration-200" />
-              </span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#process"
-              class="group text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-              Proceso
-              <span class="ml-2 inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <Arrow className="group-hover:-rotate-45 size-4 transform transition-transform duration-200" />
-              </span>
-            </a>
-          </li>
-            <li>
-            <a
-              href="#contact"
-              class="group text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors flex items-center"
-            >
-              Contacto
-              <span class="ml-2 inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              <Arrow className="group-hover:-rotate-45 size-4 transform transition-transform duration-200" />
-              </span>
-            </a>
-            </li>
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="group inline-flex items-center text-gray-600 transition-colors hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400">
+                  {link.label}
+                  <ArrowUpRight className="ml-1 size-4 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
       <div>
@@ -118,38 +107,31 @@ import Arrow from "./svg/Arrow.astro";
           Servicios
         </h4>
         <ul class="space-y-2">
-          <li>
-            <span class="text-gray-600 dark:text-gray-400">Retratos Digitales</span>
-          </li>
-          <li>
-            <span class="text-gray-600 dark:text-gray-400">Diseño de Personajes</span>
-          </li>
-          <li>
-            <span class="text-gray-600 dark:text-gray-400">Ilustraciones</span>
-          </li>
-          <li>
-            <span class="text-gray-600 dark:text-gray-400">Arte Conceptual</span>
-          </li>
-          <li>
-            <span class="text-gray-600 dark:text-gray-400">Comisiones Personalizadas</span>
-          </li>
+          {
+            services.map((service) => (
+              <li>
+                <span class="text-gray-600 dark:text-gray-400">{service}</span>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
-    <div class="border-t border-gray-800 mt-12 pt-8">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-          <span>© 2024 Luna Artística. Hecho con mucha creatividad</span>
-        </div>
-        <div class="flex gap-6 text-sm text-gray-600 dark:text-gray-400">
-          <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400  transition-colors">
-            Términos de Servicio
-          </a>
-          <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400  transition-colors">
-            Política de Privacidad
-          </a>
-          <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400  transition-colors"> FAQ </a>
-        </div>
+    <Separator className="my-8 bg-gray-300 dark:bg-gray-800" />
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+        <span>© 2024 Luna Artística. Hecho con mucha creatividad</span>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-sm">
+        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+          Términos de Servicio
+        </a>
+        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+          Política de Privacidad
+        </a>
+        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+          FAQ
+        </a>
       </div>
     </div>
   </div>

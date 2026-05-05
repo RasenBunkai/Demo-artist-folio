@@ -1,25 +1,28 @@
 ---
-import Palette from "./svg/Palette.astro";
-import Arrow from "./svg/Arrow.astro";
-import Star from "./svg/Star.astro";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle.astro";
 import Image from "astro/components/Image.astro";
+import { ArrowUpRight, Palette, Sparkles } from "lucide-react";
 
 const available = true;
-const waitList = [{date: new Date("2025-07-29")}];
+const waitList = [{ date: new Date("2026-07-30") }];
 ---
 
 <section
-  class="relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90">
+  class="relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90"
+>
   <div class="absolute top-6 right-6 z-10">
     <ThemeToggle />
   </div>
   <div class="absolute inset-0 overflow-hidden">
     <div
-      class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300/70 rounded-full blur-3xl animate-pulse">
+      class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300/70 rounded-full blur-3xl animate-pulse"
+    >
     </div>
     <div
-      class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-300/70 rounded-full blur-3xl animate-pulse delay-1000">
+      class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-300/70 rounded-full blur-3xl animate-pulse delay-1000"
+    >
     </div>
   </div>
   <div class="container mx-auto max-w-6xl relative z-10">
@@ -27,29 +30,32 @@ const waitList = [{date: new Date("2025-07-29")}];
       <div class="text-center lg:text-left space-y-8">
         <div class="space-y-4">
           <div
-            class="flex items-center justify-center lg:justify-start gap-2 text-purple-600 dark:text-purple-400">
+            class="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-purple-600 dark:text-purple-400"
+          >
             <Palette className="size-5" />
-            <span class="text-sm font-medium tracking-wide uppercase"
-              >Artista Digital</span
-            >
+            <span class="text-sm font-medium tracking-wide uppercase">
+              Artista Digital
+            </span>
             {
               available ? (
-                <span class="inline-block px-3 py-1 rounded-full bg-green-100 text-green-800 text-sm font-semibold shadow-sm">
-                  ¡Abierto a comisiones!
-                </span>
+                <Badge className="bg-emerald-100 text-emerald-800 ring-1 ring-emerald-200 hover:bg-emerald-100 dark:bg-emerald-500/15 dark:text-emerald-200 dark:ring-emerald-400/30">
+                  Abierto a comisiones
+                </Badge>
               ) : (
-                <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-800 text-sm font-semibold shadow-sm">
+                <Badge variant="destructive">
                   No disponible para comisiones
-                </span>
+                </Badge>
               )
             }
           </div>
           <h1
-            class="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
+            class="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent leading-tight"
+          >
             Luna Artística
           </h1>
           <p
-            class="text-xl md:text-2xl text-gray-600 max-w-2xl dark:text-white">
+            class="text-xl md:text-2xl text-gray-600 max-w-2xl dark:text-white"
+          >
             Creando mundos digitales únicos donde la imaginación cobra vida.
             <span class="block mt-2 text-lg italic">
               "Cada trazo cuenta una historia, cada color despierta emociones"
@@ -57,35 +63,39 @@ const waitList = [{date: new Date("2025-07-29")}];
           </p>
         </div>
         <div
-          class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+        >
           <a
-            class="group bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full font-medium"
-            href="#portfolio">
+            href="#portfolio"
+            class="flex items-center h-11 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 text-white shadow-md hover:from-purple-700 hover:to-pink-700 hover:shadow-lg"
+          >
             Ver Portafolio
-            <Arrow
-              className="group-hover:rotate-45 inline-block ml-2 size-4 transform transition-transform duration-200"
+            <ArrowUpRight
+              className="ml-1 size-4 transition-transform duration-200 group-hover/button:rotate-45"
             />
           </a>
           <a
             href="#contact"
-            class="group text-purple-900 border-2 border-purple-300 hover:bg-purple-50 dark:border-purple-600 dark:hover:bg-purple-900/20 dark:text-white px-8 py-3 rounded-full items-center font-medium">
+            class="flex items-center h-11 rounded-full border-2 border-purple-300 bg-white/40 px-8 text-purple-900 backdrop-blur hover:bg-purple-50 dark:border-purple-600 dark:bg-white/5 dark:text-white dark:hover:bg-purple-900/30"
+          >
             Pedir Comisión
-            <Star
-              className="group-hover:rotate-45 inline-block ml-2 size-4 transform transition-transform duration-200"
+            <Sparkles
+              className="ml-1 size-4 transition-transform duration-200 group-hover/button:rotate-12"
             />
           </a>
         </div>
-        <div class="flex justify-center lg:justify-center gap-8 pt-8">
-          <div class="text-center">
+        <div class="grid grid-cols-3 gap-4 pt-8 text-center lg:max-w-xl">
+          <div>
             <div
-              class="text-2xl font-bold text-purple-600 dark:text-purple-400">
+              class="text-2xl font-bold text-purple-600 dark:text-purple-400"
+            >
               500+
             </div>
             <div class="text-sm text-gray-600 dark:text-gray-400">
               Obras Creadas
             </div>
           </div>
-          <div class="text-center">
+          <div>
             <div class="text-2xl font-bold text-pink-600 dark:text-pink-400">
               200+
             </div>
@@ -93,10 +103,10 @@ const waitList = [{date: new Date("2025-07-29")}];
               Clientes Felices
             </div>
           </div>
-          <div class="text-center">
+          <div>
             {
               waitList.map((item) => (
-                <div class="text-2xl font-bold text-pink-600 dark:text-pink-400">
+                <div class="text-xl md:text-2xl font-bold text-pink-600 dark:text-pink-400">
                   {item.date.toLocaleDateString("es-ES", {
                     year: "numeric",
                     month: "long",
@@ -114,7 +124,8 @@ const waitList = [{date: new Date("2025-07-29")}];
       <div class="relative">
         <div class="relative w-full max-w-lg mx-auto">
           <div
-            class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl blur-2xl opacity-30 animate-pulse">
+            class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl blur-2xl opacity-30 animate-pulse"
+          >
           </div>
           <Image
             src="/placeholder.svg?height=600&width=500"

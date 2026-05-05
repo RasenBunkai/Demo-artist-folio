@@ -1,138 +1,134 @@
 ---
-import Chat from "./svg/Chat.astro";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  NativeSelect,
+  NativeSelectOption,
+} from "@/components/ui/native-select";
+import { Textarea } from "@/components/ui/textarea";
+import { MessageCircle, Send } from "lucide-react";
 ---
 
-<div
-  class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-purple-200 dark:border-purple-700 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-  <div class="p-6 border-b border-purple-100 dark:border-purple-900">
-    <h3
-      class="text-2xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-3">
-      <Chat class="w-6 h-6 text-purple-600 dark:text-purple-400" />
+<Card
+  className="border-purple-200 bg-white/70 shadow-sm backdrop-blur-sm transition-shadow duration-300 hover:shadow-md dark:border-purple-700 dark:bg-gray-800/70"
+>
+  <CardHeader className="border-b border-purple-100 dark:border-purple-900">
+    <CardTitle
+      className="flex items-center gap-3 text-2xl font-bold text-gray-800 dark:text-gray-200"
+    >
+      <MessageCircle className="size-6 text-purple-600 dark:text-purple-400" />
       Formulario de Contacto
-    </h3>
-  </div>
-  <div class="p-6">
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="p-6">
     <form class="space-y-6" name="contact" method="POST" data-netlify="true">
       <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label
-            for="name"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <div class="space-y-2">
+          <Label htmlFor="name" className="text-gray-700 dark:text-gray-300">
             Nombre *
-          </label>
-          <input
+          </Label>
+          <Input
             id="name"
             name="name"
             type="text"
             required
-            class="w-full px-4 py-2 border border-purple-200 dark:border-purple-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:focus:ring-purple-500 dark:focus:border-purple-500 bg-white dark:bg-slate-900 transition-all duration-200 dark:text-white"
+            className="h-10 border-purple-200 bg-white dark:border-purple-700 dark:bg-slate-900"
             placeholder="Tu nombre completo"
           />
         </div>
 
-        <div>
-          <label
-            for="email"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <div class="space-y-2">
+          <Label htmlFor="email" className="text-gray-700 dark:text-gray-300">
             Email *
-          </label>
-          <input
+          </Label>
+          <Input
             id="email"
             name="email"
             type="email"
             required
-            class="w-full px-4 py-2 border border-purple-200 dark:border-purple-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:focus:ring-purple-500 dark:focus:border-purple-500 bg-white dark:bg-slate-900 transition-all duration-200 dark:text-white"
+            className="h-10 border-purple-200 bg-white dark:border-purple-700 dark:bg-slate-900"
             placeholder="tu@email.com"
           />
         </div>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label
-            for="commission"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <div class="space-y-2">
+          <Label
+            htmlFor="commission"
+            className="text-gray-700 dark:text-gray-300"
+          >
             Tipo de Comisión *
-          </label>
-          <select
+          </Label>
+          <NativeSelect
             id="commission"
             name="commission"
             required
-            class="w-full px-4 py-2 border border-purple-200 dark:border-purple-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:focus:ring-purple-500 dark:focus:border-purple-500 bg-white dark:bg-slate-900 appearance-none transition-all duration-200 dark:text-white/60">
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="Busto">Busto ($50)</option>
-            <option value="Medio Cuerpo">Medio Cuerpo ($85)</option>
-            <option value="Cuerpo Completo">Cuerpo Completo ($120)</option>
-            <option value="Otro">Otro</option>
-          </select>
+            defaultValue=""
+            className="w-full [&_select]:h-10 [&_select]:border-purple-200 [&_select]:bg-white dark:[&_select]:border-purple-700 dark:[&_select]:bg-slate-900"
+          >
+            <NativeSelectOption value="" disabled>
+              Selecciona una opción
+            </NativeSelectOption>
+            <NativeSelectOption value="Busto">Busto ($50)</NativeSelectOption>
+            <NativeSelectOption value="Medio Cuerpo">
+              Medio Cuerpo ($85)
+            </NativeSelectOption>
+            <NativeSelectOption value="Cuerpo Completo">
+              Cuerpo Completo ($120)
+            </NativeSelectOption>
+            <NativeSelectOption value="Otro">Otro</NativeSelectOption>
+          </NativeSelect>
         </div>
-        <div>
-          <label
-            for="budget"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <div class="space-y-2">
+          <Label htmlFor="budget" className="text-gray-700 dark:text-gray-300">
             Presupuesto
-          </label>
-          <input
+          </Label>
+          <Input
             id="budget"
             name="budget"
             type="text"
-            class="w-full px-4 py-2 border border-purple-200 dark:border-purple-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:focus:ring-purple-500 dark:focus:border-purple-500 bg-white dark:bg-slate-900 dark:text-white transition-all duration-200"
+            className="h-10 border-purple-200 bg-white dark:border-purple-700 dark:bg-slate-900"
             placeholder="Ej: $50-100"
           />
         </div>
       </div>
-      <div>
-        <label
-          for="deadline"
-          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <div class="space-y-2">
+        <Label htmlFor="deadline" className="text-gray-700 dark:text-gray-300">
           Fecha Límite Deseada
-        </label>
-        <input
+        </Label>
+        <Input
           id="deadline"
           name="deadline"
           type="date"
-          class="w-full px-4 py-2 border border-purple-200 dark:border-purple-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:focus:ring-purple-500 dark:focus:border-purple-500 bg-white dark:bg-slate-900 dark:text-white/60 transition-all duration-200"
-          style="color-scheme: light dark;"
+          className="h-10 border-purple-200 bg-white dark:border-purple-700 dark:bg-slate-900"
         />
       </div>
-      <div>
-        <label
-          for="description"
-          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+      <div class="space-y-2">
+        <Label
+          htmlFor="description"
+          className="text-gray-700 dark:text-gray-300"
+        >
           Descripción del Proyecto *
-        </label>
-        <textarea
+        </Label>
+        <Textarea
           id="description"
           name="description"
           required
-          rows={5}
-          class="w-full min-h-32 px-4 py-2 border border-purple-200 dark:border-purple-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:focus:ring-purple-500 dark:focus:border-purple-500 bg-white dark:bg-slate-900 dark:text-white transition-all duration-200"
+          rows={40}
+          className="min-h-64 max-h-64 border-purple-200 bg-white dark:border-purple-700 dark:bg-slate-900"
           placeholder="Describe tu idea, incluye referencias, estilo deseado, colores, etc. Mientras más detalles, mejor será el resultado."
-        ></textarea>
+        />
       </div>
-      <button
+      <Button
         type="submit"
-        class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 px-6 rounded-full font-medium transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 cursor-pointer">
+        size="lg"
+        className="h-11 w-full rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md hover:from-purple-700 hover:to-pink-700 hover:shadow-lg"
+      >
+        <Send className="size-4" />
         Enviar Solicitud
-      </button>
+      </Button>
     </form>
-  </div>
-</div>
-
-<style>
-  select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23946fbe' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 0.75rem center;
-    background-repeat: no-repeat;
-    background-size: 1.5em 1.5em;
-    padding-right: 2.5rem;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .dark select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a855f7' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  }
-  textarea {
-    field-sizing: content;
-  }
-</style>
+  </CardContent>
+</Card>

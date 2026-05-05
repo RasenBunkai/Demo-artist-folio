@@ -1,28 +1,33 @@
 ---
+import { Badge } from "@/components/ui/badge";
+import { Card as ShadCard } from "@/components/ui/card";
 import Image from "astro/components/Image.astro";
+
 const { artwork } = Astro.props;
-const { id, title, category, image } = artwork;
+const { title, category, image } = artwork;
 ---
 
-<div
-    class="group overflow-hidden bg-white/70 dark:bg-gray-900/70 backdrop-blur border border-purple-300 dark:border-purple-700 shadow transition-all duration-300 hover:shadow-xl hover:scale-105 rounded-xl"
->
-    <div class="relative aspect-square overflow-hidden">
-        <Image
-            src={image || "/placeholder.svg"}
-            alt={title}
-            width={400}
-            height={400}
-            draggable="false"
-            class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-        />
-        <div
-            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-            <div class="absolute bottom-4 left-4 right-4 text-white drop-shadow">
-                <h3 class="font-bold text-lg truncate">{title}</h3>
-                <p class="text-xs text-purple-200">{category}</p>
-            </div>
-        </div>
+<ShadCard
+  className="group overflow-hidden border-purple-200 bg-white/70 p-0 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-xl dark:border-purple-700 dark:bg-gray-900/70">
+  <div class="relative aspect-square overflow-hidden">
+    <Image
+      src={image || "/placeholder.svg"}
+      alt={title}
+      width={400}
+      height={400}
+      draggable="false"
+      class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <div class="absolute bottom-4 left-4 right-4 text-white drop-shadow">
+        <h3 class="text-lg font-bold leading-tight">{title}</h3>
+        <Badge
+          variant="secondary"
+          className="mt-2 bg-white/20 text-white ring-1 ring-white/25 backdrop-blur hover:bg-white/25">
+          {category}
+        </Badge>
+      </div>
     </div>
-</div>
+  </div>
+</ShadCard>

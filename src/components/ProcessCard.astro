@@ -1,29 +1,39 @@
 ---
-const {step, index, steps} = Astro.props;
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+const { step } = Astro.props;
+const Icon = step.icon;
 ---
 
-<div
-  class="relative rounded-lg border border-purple-200 overflow-hidden bg-white dark:bg-gray-800/50 backdrop-blur-sm dark:border-purple-700 hover:shadow-xl transition-all duration-300 hover:scale-105">
-  <div class="p-6 text-center">
-    <div
-      class={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white`}>
-      {step.icon && <step.icon class={step.iconClass} />}
+<Card
+  className="relative border-purple-200 bg-white/75 text-center shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-purple-700 dark:bg-gray-800/70">
+  <CardHeader className="items-center">
+    <div class="flex w-full justify-center">
+      <div
+      class={`flex size-16 items-center justify-center rounded-full bg-gradient-to-r ${step.color} text-white shadow-md`}>
+      <Icon className="size-8" />
+      </div>
     </div>
-
     <div
-      class={`text-3xl font-bold bg-gradient-to-r ${step.color} bg-clip-text text-transparent mb-3`}>
+      class={`text-3xl font-bold bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
       {step.number}
     </div>
-
-    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">
+    <CardTitle className="text-xl font-semibold text-gray-800 dark:text-gray-200">
       {step.title}
-    </h3>
-
-    <p class="text-gray-600 dark:text-gray-400 leading-relaxed pb-8 font-medium">
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <CardDescription className="text-base font-medium leading-relaxed text-gray-600 dark:text-gray-400">
       {step.description}
-    </p>
-  </div>
+    </CardDescription>
+  </CardContent>
   <div
     class="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-purple-300 to-pink-300 dark:from-purple-600 dark:to-pink-600">
   </div>
-</div>
+</Card>

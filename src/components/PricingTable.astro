@@ -1,15 +1,13 @@
 ---
+import { Card, CardContent } from "@/components/ui/card";
 import PricingCard from "./PricingCard.astro";
-import Sparkles from "./svg/Sparkles.astro";
-import Fire from "./svg/Fire.astro";
-import Zap from "./svg/Zap.astro";
+import { Flame, Sparkles, Zap } from "lucide-react";
 
 const pricingPlans = [
   {
     name: "Busto",
     price: "$50",
     icon: Sparkles,
-    iconClass: "size-8",
     description: "Retrato desde el pecho hacia arriba",
     features: [
       "Alta resolución (300 DPI)",
@@ -24,8 +22,7 @@ const pricingPlans = [
   {
     name: "Medio Cuerpo",
     price: "$85",
-    icon: Fire,
-    iconClass: "size-8",
+    icon: Flame,
     description: "Desde la cintura hacia arriba",
     features: [
       "Alta resolución (300 DPI)",
@@ -42,7 +39,6 @@ const pricingPlans = [
     name: "Cuerpo Completo",
     price: "$120",
     icon: Zap,
-    iconClass: "size-8",
     description: "Personaje completo con escenario",
     features: [
       "Ultra alta resolución",
@@ -77,15 +73,17 @@ const pricingPlans = [
       {pricingPlans.map((plan) => <PricingCard plan={plan} key={plan.name} />)}
     </div>
   </div>
-  <div
-    class="container mx-auto max-w-4xl text-center mt-14 p-6 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/40 dark:to-pink-900/40 rounded-2xl shadow-lg">
-    <p
-      class="text-gray-800 dark:text-gray-200 mb-2 text-lg md:text-xl font-semibold">
-      ¿Necesitas algo personalizado?
-    </p>
-    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg">
-      Contáctame para proyectos especiales, ilustraciones comerciales o paquetes
-      personalizados.
-    </p>
-  </div>
+  <Card
+    className="container mx-auto max-w-4xl mt-14 border-purple-200 bg-gradient-to-r from-purple-100 to-pink-100 text-center shadow-lg dark:border-purple-700 dark:from-purple-900/40 dark:to-pink-900/40">
+    <CardContent className="p-6">
+      <p
+        class="text-gray-800 dark:text-gray-200 mb-2 text-lg md:text-xl font-semibold">
+        ¿Necesitas algo personalizado?
+      </p>
+      <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg">
+        Contáctame para proyectos especiales, ilustraciones comerciales o paquetes
+        personalizados.
+      </p>
+    </CardContent>
+  </Card>
 </section>

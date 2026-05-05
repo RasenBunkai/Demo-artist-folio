@@ -1,16 +1,16 @@
 ---
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import ProcessCard from "./ProcessCard.astro";
-import Chat from "./svg/Chat.astro";
-import Brush from "./svg/Brush.astro";
-import Eye from "./svg/Eye.astro";
-import Download from "./svg/Download.astro";
+import { Download, Eye, MessageCircle, Paintbrush } from "lucide-react";
+
 const steps = [
   {
     number: "01",
     title: "Consulta Inicial",
     description:
       "Conversamos sobre tu idea, referencias y detalles específicos del proyecto",
-    icon: Chat,
+    icon: MessageCircle,
     color: "from-blue-500 to-purple-500",
   },
   {
@@ -18,7 +18,7 @@ const steps = [
     title: "Boceto y Aprobación",
     description:
       "Creo un boceto inicial para confirmar la composición y el concepto",
-    icon: Brush,
+    icon: Paintbrush,
     color: "from-purple-500 to-pink-500",
   },
   {
@@ -42,41 +42,49 @@ const steps = [
 
 <section
   id="process"
-  class="bg-gradient-to-t from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90">
+  class="bg-gradient-to-t from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90"
+>
   <div class="py-16 px-4 mx-auto max-w-6xl">
     <div class="text-center mb-14">
       <h2
-        class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-3">
+        class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-3"
+      >
         Proceso de Trabajo
       </h2>
       <p
-        class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+      >
         Un proceso claro y transparente para garantizar que obtengas exactamente
         lo que imaginas.
       </p>
     </div>
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-      {steps.map((step, index) => <ProcessCard key={index} step={step} />)}
+      {steps.map((step) => <ProcessCard step={step} key={step.number} />)}
     </div>
-    <div class="text-center mt-14">
-      <div
-        class="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/40 dark:to-pink-900/40 rounded-2xl p-8 shadow-md">
+    <Card
+      className="mt-14 border-purple-200 bg-gradient-to-r from-purple-100 to-pink-100 text-center shadow-md dark:border-purple-700 dark:from-purple-900/40 dark:to-pink-900/40"
+    >
+      <CardContent className="p-8">
         <h3
-          class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-3">
+          class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-3"
+        >
           ¿Listo para comenzar?
         </h3>
         <p
-          class="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto text-base md:text-lg">
+          class="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto text-base md:text-lg"
+        >
           El proceso completo suele tomar entre 5 y 14 días, dependiendo de la
           complejidad. Mantengo comunicación constante para asegurar tu
           satisfacción total.
         </p>
+
         <a
-          href="#Contact"
-          class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
+          class="h-fit py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 text-white shadow hover:from-purple-700 hover:to-pink-700 hover:shadow-lg"
+          href="#contact"
+        >
           Iniciar Proyecto
         </a>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   </div>
 </section>
