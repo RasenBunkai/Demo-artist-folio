@@ -8,6 +8,10 @@ body {
   height: 100%;
   position: relative;
 }
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
 /* body::before {
   content: "";
   position: fixed;

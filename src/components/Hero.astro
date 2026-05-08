@@ -1,7 +1,6 @@
 ---
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "./ThemeToggle.astro";
 import Image from "astro/components/Image.astro";
 import { ArrowUpRight, Palette, Sparkles } from "lucide-react";
 
@@ -10,11 +9,9 @@ const waitList = [{ date: new Date("2026-07-30") }];
 ---
 
 <section
+  id="home"
   class="relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90"
 >
-  <div class="absolute top-6 right-6 z-10">
-    <ThemeToggle />
-  </div>
   <div class="absolute inset-0 overflow-hidden">
     <div
       class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300/70 rounded-full blur-3xl animate-pulse"

@@ -1,19 +1,19 @@
 ---
-import { Button } from "@/components/ui/button";
+import { Toggle } from "@/components/ui/toggle";
 import { Moon, Sun } from "lucide-react";
 ---
 
-<Button
-  id="themeToggle"
+<Toggle
   type="button"
   variant="outline"
-  size="icon-lg"
+  size="lg"
   aria-label="Cambiar tema"
-  className="rounded-full border-purple-300 bg-white text-purple-900 shadow-lg backdrop-blur hover:bg-purple-50 dark:border-purple-600 dark:bg-white/10 dark:text-white dark:hover:bg-purple-900/30 hover:cursor-pointer"
+  data-theme-toggle
+  className="theme-toggle relative min-w-9 rounded-full border-purple-300 bg-white/80 px-0 text-purple-900 shadow-sm backdrop-blur hover:bg-purple-50 dark:border-purple-600 dark:bg-white/10 dark:text-white dark:hover:bg-purple-900/30"
 >
   <Sun className="sun-icon size-5" />
   <Moon className="moon-icon absolute size-5" />
-</Button>
+</Toggle>
 
 <style>
   .moon-icon {
@@ -53,25 +53,39 @@ import { Moon, Sun } from "lucide-react";
       }
       return "light";
     })();
+
     document.documentElement.classList.remove("dark", "light");
     document.documentElement.classList.add(theme);
     window.localStorage.setItem("theme", theme);
   })();
 
+  function syncThemeToggleState() {
+    const isDark = document.documentElement.classList.contains("dark");
+
+    document.querySelectorAll("[data-theme-toggle]").forEach((toggle) => {
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.setAttribute("data-state", isDark ? "on" : "off");
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
-    document
-      .getElementById("themeToggle")
-      ?.addEventListener("click", function () {
+    syncThemeToggleState();
+
+    document.querySelectorAll("[data-theme-toggle]").forEach((toggle) => {
+      if (toggle.dataset.themeToggleReady === "true") {
+        return;
+      }
+
+      toggle.dataset.themeToggleReady = "true";
+      toggle.addEventListener("click", function () {
         const element = document.documentElement;
-        if (element.classList.contains("dark")) {
-          element.classList.remove("dark");
-          element.classList.add("light");
-          localStorage.setItem("theme", "light");
-        } else {
-          element.classList.remove("light");
-          element.classList.add("dark");
-          localStorage.setItem("theme", "dark");
-        }
+        const nextTheme = element.classList.contains("dark") ? "light" : "dark";
+
+        element.classList.remove("dark", "light");
+        element.classList.add(nextTheme);
+        localStorage.setItem("theme", nextTheme);
+        syncThemeToggleState();
       });
+    });
   });
 </script>

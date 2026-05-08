@@ -1,0 +1,112 @@
+---
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import ThemeToggle from "./ThemeToggle.astro";
+import { Menu, Palette, X } from "lucide-react";
+
+const sections = [
+  { label: "Portafolio", href: "#portfolio" },
+  { label: "Precios", href: "#pricing" },
+  { label: "Qué hago", href: "#guidelines" },
+  { label: "Pagos", href: "#payments" },
+  { label: "Proceso", href: "#process" },
+  { label: "Contacto", href: "#contact" },
+];
+---
+
+<header class="fixed inset-x-0 top-0 z-50 px-3 py-3 sm:px-4">
+  <nav
+    aria-label="Navegación principal"
+    class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-2xl border border-purple-200/70 bg-white/80 px-3 py-2.5 shadow-lg shadow-purple-200/30 backdrop-blur-xl dark:border-purple-800/60 dark:bg-slate-950/75 dark:shadow-black/30 sm:px-4"
+  >
+    <a
+      href="#home"
+      class="group flex min-w-fit items-center gap-2 rounded-full outline-none transition-transform hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 dark:focus-visible:ring-purple-500 dark:focus-visible:ring-offset-slate-950"
+      aria-label="Ir al inicio"
+    >
+      <span
+        class="flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-sm shadow-purple-300/50 transition-shadow group-hover:shadow-purple-400/60 dark:shadow-purple-950/40"
+      >
+        <Palette className="size-5" />
+      </span>
+
+      <span
+        class="hidden bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-base font-bold tracking-tight text-transparent dark:from-purple-300 dark:to-pink-300 sm:inline"
+      >
+        Luna Artística
+      </span>
+    </a>
+
+    <Separator
+      orientation="vertical"
+      className="hidden h-7 bg-purple-200/80 lg:block dark:bg-purple-800/70"
+    />
+
+    <div class="hidden flex-1 items-center justify-center gap-1 lg:flex">
+      {
+        sections.map((section) => (
+          <a
+            href={section.href}
+            class="rounded-full px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-purple-100 hover:text-purple-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 dark:text-slate-300 dark:hover:bg-purple-900/40 dark:hover:text-purple-200"
+          >
+            {section.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center gap-2">
+      <div class="hidden sm:block">
+        <ThemeToggle />
+      </div>
+      <a
+        href="#contact"
+        class="hidden rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 text-white shadow-sm shadow-purple-300/50 transition-all hover:scale-[1.02] hover:from-purple-700 hover:to-pink-700 dark:shadow-purple-950/40 md:inline-flex w-fit py-2"
+        >Solicitar comisión</a
+      >
+
+      <details class="group relative lg:hidden">
+        <summary
+          class="flex size-9 cursor-pointer list-none items-center justify-center rounded-full border border-purple-200 bg-white/80 text-slate-700 transition-colors hover:bg-purple-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 dark:border-purple-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:bg-purple-950/50 [&::-webkit-details-marker]:hidden"
+          aria-label="Abrir menú"
+        >
+          <Menu className="size-5 group-open:hidden" />
+          <X className="hidden size-5 group-open:block" />
+        </summary>
+
+        <div
+          class="absolute right-0 mt-3 w-64 overflow-hidden rounded-2xl border border-purple-200/70 bg-white/95 p-2 shadow-xl shadow-purple-200/40 backdrop-blur-xl dark:border-purple-800/60 dark:bg-slate-950/95 dark:shadow-black/40"
+        >
+          <div class="flex items-center justify-between px-2 py-2 sm:hidden">
+            <span
+              class="text-sm font-medium text-slate-500 dark:text-slate-400"
+            >
+              Tema
+            </span>
+            <ThemeToggle />
+          </div>
+
+          <Separator className="my-1 sm:hidden" />
+
+          <div class="flex flex-col">
+            {
+              sections.map((section) => (
+                <a
+                  href={section.href}
+                  class="text-sm font-medium text-slate-700 hover:text-purple-700 hover:bg-purple-100 rounded-xl px-3 py-2.5 transition-colors dark:text-slate-200 dark:hover:bg-purple-900/40 dark:hover:text-purple-200 my-0.5"
+                >
+                  {section.label}
+                </a>
+              ))
+            }
+            <a
+              href="#contact"
+              class="text-center mt-2 w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 py-2"
+              >Solicitar comisión</a
+            >
+          </div>
+        </div>
+      </details>
+    </div>
+  </nav>
+</header>
