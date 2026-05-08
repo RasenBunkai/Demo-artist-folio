@@ -3,9 +3,18 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "astro/components/Image.astro";
 import { ArrowUpRight, Palette, Sparkles } from "lucide-react";
+import Tiktok from "./svg/Tiktok.astro";
+import Youtube from "./svg/Youtube.astro";
+import Twitter from "./svg/Twitter.astro";
+import Instagram from "./svg/Instagram.astro";
 
 const available = true;
 const waitList = [{ date: new Date("2026-07-30") }];
+const socialMedia = [
+  { label: "Twitter", href: "https://twitter.com/", icon: Twitter },
+  { label: "Instagram", href: "https://instagram.com/", icon: Instagram },
+  { label: "TikTok", href: "https://tiktok.com/@", icon: Tiktok },
+];
 ---
 
 <section
@@ -82,40 +91,21 @@ const waitList = [{ date: new Date("2026-07-30") }];
           </a>
         </div>
         <div class="grid grid-cols-3 gap-4 pt-8 text-center lg:max-w-xl">
-          <div>
-            <div
-              class="text-2xl font-bold text-purple-600 dark:text-purple-400"
-            >
-              500+
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">
-              Obras Creadas
-            </div>
-          </div>
-          <div>
-            <div class="text-2xl font-bold text-pink-600 dark:text-pink-400">
-              200+
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">
-              Clientes Felices
-            </div>
-          </div>
-          <div>
-            {
-              waitList.map((item) => (
-                <div class="text-xl md:text-2xl font-bold text-pink-600 dark:text-pink-400">
-                  {item.date.toLocaleDateString("es-ES", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </div>
-              ))
+          <h4 class="col-span-3 text-sm font-semibold text-gray-800 dark:text-gray-200">
+            Sígueme en redes sociales
+          </h4>
+          {
+            socialMedia.map((social) => (
+              <a
+                href={social.href}
+                target="_blank"
+                class="flex flex-col items-center gap-2 rounded-lg border border-purple-200 bg-white/40 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-purple-200 dark:border-purple-700/50 dark:bg-gray-800/70 dark:text-gray-300 dark:hover:bg-purple-900/40"
+              >
+                <social.icon className="size-5" />
+                {social.label}
+              </a>
+            ))
             }
-            <div class="text-sm text-gray-600 dark:text-gray-400">
-              Lista de espera aprox
-            </div>
-          </div>
         </div>
       </div>
       <div class="relative">
