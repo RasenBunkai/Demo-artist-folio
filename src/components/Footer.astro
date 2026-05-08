@@ -1,20 +1,12 @@
 ---
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ArrowUpRight,Palette } from "lucide-react";
+import { Palette } from "lucide-react";
 import Tiktok from "./svg/Tiktok.astro";
 import Youtube from "./svg/Youtube.astro";
 import Twitter from "./svg/Twitter.astro";
 import Instagram from "./svg/Instagram.astro";
-
-const links = [
-  { label: "Portafolio", href: "#portfolio" },
-  { label: "Precios", href: "#pricing" },
-  { label: "Lineamientos", href: "#guidelines" },
-  { label: "Pagos", href: "#payments" },
-  { label: "Proceso", href: "#process" },
-  { label: "Contacto", href: "#contact" },
-];
+import FooterText from "./svg/Footertext.svg";
 
 const services = [
   "Retratos Digitales",
@@ -23,20 +15,40 @@ const services = [
   "Arte Conceptual",
   "Comisiones Personalizadas",
 ];
+const socialMedia = [
+  { label: "Twitter", href: "https://twitter.com/", icon: Twitter },
+  { label: "Instagram", href: "https://instagram.com/", icon: Instagram },
+  { label: "TikTok", href: "https://tiktok.com/", icon: Tiktok },
+  { label: "YouTube", href: "https://youtube.com/", icon: Youtube },
+];
+const Entry = [
+  { label: "Términos de Servicio", href: "#" },
+  { label: "Política de Privacidad", href: "#" },
+  { label: "FAQ", href: "#" },
+];
 ---
 
 <footer
-  class="text-white py-16 bg-gradient-to-b from-sky-200 via-pink-200 to-purple-200 dark:from-black/90 dark:via-slate-900/97 dark:to-gray-900">
-  <div class="container mx-auto max-w-6xl px-4">
+  class="relative overflow-hidden text-white py-16 bg-gradient-to-b from-sky-200 via-pink-200 to-purple-200 dark:from-black/90 dark:via-slate-900/97 dark:to-gray-900"
+>
+  <img
+    src={FooterText.src}
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-x-0 bottom-0 z-0 mx-auto w-[min(1200px,115vw)] max-w-none opacity-35 blur-sm dark:opacity-20"
+  />
+  <div class="container relative z-10 mx-auto max-w-6xl px-4">
     <div class="grid md:grid-cols-4 gap-8">
       <div class="md:col-span-2">
         <div class="flex items-center gap-2 mb-4">
           <div
-            class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+            class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center"
+          >
             <Palette className="size-6" />
           </div>
           <h3
-            class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent dark:from-purple-400 dark:to-pink-400">
+            class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent dark:from-purple-400 dark:to-pink-400"
+          >
             Luna Artística
           </h3>
         </div>
@@ -45,64 +57,20 @@ const services = [
           proyecto es una nueva aventura artística.
         </p>
         <div class="flex gap-3">
-          <Button
-            asChild
-            variant="ghost"
-            size="icon-lg"
-            className="rounded-full text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-300">
-            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
-              <Instagram className="size-5" />
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="ghost"
-            size="icon-lg"
-            className="rounded-full text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-300">
-            <a href="https://x.com/home" target="_blank" aria-label="X">
-              <Twitter className="size-5" />
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="ghost"
-            size="icon-lg"
-            className="rounded-full text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-300">
-            <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
-              <Youtube className="size-5" />
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="ghost"
-            size="icon-lg"
-            className="rounded-full text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-300">
-            <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok">
-              <Tiktok className="size-5" />
-            </a>
-          </Button>
-        </div>
-      </div>
-      <div>
-        <h4 class="text-lg font-semibold mb-4 text-gray-600 dark:text-white">
-          Enlaces Rápidos
-        </h4>
-        <ul class="space-y-2">
           {
-            links.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="group inline-flex items-center text-gray-600 transition-colors hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400">
-                  {link.label}
-                  <ArrowUpRight className="ml-1 size-4 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
-                </a>
-              </li>
+            socialMedia.map((social) => (
+              <a
+                href={social.href}
+                class="size-10 rounded-full hover:scale-110 transition-transform"
+                aria-label={`Visitar ${social.label}`}
+              >
+                <social.icon className="size-5" />
+              </a>
             ))
           }
-        </ul>
+        </div>
       </div>
-      <div>
+      <div class="md:col-span-1 md:col-start-4 md:justify-self-end">
         <h4 class="text-lg font-semibold mb-4 text-gray-600 dark:text-white">
           Servicios
         </h4>
@@ -123,15 +91,16 @@ const services = [
         <span>© 2024 Luna Artística. Hecho con mucha creatividad</span>
       </div>
       <div class="flex flex-wrap justify-center gap-6 text-sm">
-        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-          Términos de Servicio
-        </a>
-        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-          Política de Privacidad
-        </a>
-        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-          FAQ
-        </a>
+        {
+          Entry.map((entry) => (
+            <a
+              href={entry.href}
+              class="text-gray-600 dark:text-gray-400 hover:bg-purple-100 hover:text-purple-500 dark:hover:text-white dark:hover:bg-purple-500 transition-colors rounded-full px-3 py-1"
+            >
+              {entry.label}
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
