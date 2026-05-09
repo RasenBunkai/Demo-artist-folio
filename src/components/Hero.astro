@@ -1,6 +1,5 @@
 ---
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import Image from "astro/components/Image.astro";
 import { ArrowUpRight, Palette, Sparkles } from "lucide-react";
 import Tiktok from "./svg/Tiktok.astro";
@@ -9,19 +8,20 @@ import Twitter from "./svg/Twitter.astro";
 import Instagram from "./svg/Instagram.astro";
 
 const available = true;
-const waitList = [{ date: new Date("2026-07-30") }];
 const socialMedia = [
   { label: "Twitter", href: "https://twitter.com/", icon: Twitter },
   { label: "Instagram", href: "https://instagram.com/", icon: Instagram },
   { label: "TikTok", href: "https://tiktok.com/", icon: Tiktok },
+  { label: "YouTube", href: "https://youtube.com/", icon: Youtube },
 ];
 ---
 
 <section
   id="home"
-  class="relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90"
+  class="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden bg-gradient-to-b from-purple-200 via-pink-200 to-sky-200 dark:from-slate-900 dark:via-purple-900 dark:to-black/90"
 >
-  <div class="absolute inset-0 overflow-hidden">
+  <!-- Círculos decorativos animados -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div
       class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300/70 rounded-full blur-3xl animate-pulse"
     >
@@ -31,17 +31,19 @@ const socialMedia = [
     >
     </div>
   </div>
+
   <div class="container mx-auto max-w-6xl relative z-10">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Columna de texto -->
       <div class="text-center lg:text-left space-y-8">
         <div class="space-y-4">
           <div
             class="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-purple-600 dark:text-purple-400"
           >
             <Palette className="size-5" />
-            <span class="text-sm font-medium tracking-wide uppercase">
-              Artista Digital
-            </span>
+            <span class="text-sm font-medium tracking-wide uppercase"
+              >Artista Digital</span
+            >
             {
               available ? (
                 <Badge className="bg-emerald-100 text-emerald-800 ring-1 ring-emerald-200 hover:bg-emerald-100 dark:bg-emerald-500/15 dark:text-emerald-200 dark:ring-emerald-400/30">
@@ -54,13 +56,15 @@ const socialMedia = [
               )
             }
           </div>
+
           <h1
             class="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent leading-tight"
           >
             Luna Artística
           </h1>
+
           <p
-            class="text-xl md:text-2xl text-gray-600 max-w-2xl dark:text-white"
+            class="text-xl md:text-2xl text-gray-600 dark:text-white max-w-2xl mx-auto lg:mx-0"
           >
             Creando mundos digitales únicos donde la imaginación cobra vida.
             <span class="block mt-2 text-lg italic">
@@ -68,48 +72,57 @@ const socialMedia = [
             </span>
           </p>
         </div>
+
+        <!-- Botones de acción centrados en móvil -->
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
         >
           <a
             href="#portfolio"
-            class="flex items-center h-11 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 text-white shadow-md hover:from-purple-700 hover:to-pink-700 hover:shadow-lg"
+            class="flex items-center justify-center rounded-full px-8 h-11 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-md hover:shadow-lg transition-all duration-200 text-center text-white"
           >
             Ver Portafolio
             <ArrowUpRight
-              className="ml-1 size-4 transition-transform duration-200 group-hover/button:rotate-45"
+              className="ml-1 size-4 transition-transform group-hover:rotate-45"
             />
           </a>
           <a
             href="#contact"
-            class="flex items-center h-11 rounded-full border-2 border-purple-300 bg-white/40 px-8 text-purple-900 backdrop-blur hover:bg-purple-50 dark:border-purple-600 dark:bg-white/5 dark:text-white dark:hover:bg-purple-900/30"
+            class="flex items-center justify-center rounded-full px-8 h-11 border-2 border-purple-300 bg-white/40 backdrop-blur text-purple-900 hover:bg-purple-50 dark:border-purple-600 dark:bg-white/5 dark:text-white dark:hover:bg-purple-900/30"
           >
             Pedir Comisión
-            <Sparkles
-              className="ml-1 size-4 transition-transform duration-200 group-hover/button:rotate-12"
-            />
+            <Sparkles className="ml-1 size-4" />
           </a>
         </div>
-        <div class="grid grid-cols-3 gap-4 pt-8 text-center lg:max-w-xl">
-          <h4 class="col-span-3 text-sm font-semibold text-gray-800 dark:text-gray-200">
+
+        <!-- Redes sociales -->
+        <div class="pt-8">
+          <h4
+            class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-4"
+          >
             Sígueme en redes sociales
           </h4>
-          {
-            socialMedia.map((social) => (
-              <a
-                href={social.href}
-                target="_blank"
-                class="flex flex-col items-center gap-2 rounded-lg border border-purple-200 bg-white/40 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-purple-200 dark:border-purple-700/50 dark:bg-gray-800/70 dark:text-gray-300 dark:hover:bg-purple-900/40"
-              >
-                <social.icon className="size-5" />
-                {social.label}
-              </a>
-            ))
+          <div class="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+            {
+              socialMedia.map((social) => (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex flex-col items-center justify-center gap-2 rounded-lg border border-purple-200 bg-white/40 px-3 py-3 text-sm font-medium text-gray-700 transition hover:bg-purple-200 hover:shadow-md dark:border-purple-700/50 dark:bg-gray-800/70 dark:text-gray-300 dark:hover:bg-purple-900/40"
+                >
+                  <social.icon class="size-5" />
+                  <span>{social.label}</span>
+                </a>
+              ))
             }
+          </div>
         </div>
       </div>
-      <div class="relative">
-        <div class="relative w-full max-w-lg mx-auto">
+
+      <!-- Columna de imagen -->
+      <div class="relative flex justify-center">
+        <div class="relative w-full max-w-md mx-auto lg:max-w-lg">
           <div
             class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl blur-2xl opacity-30 animate-pulse"
           >
@@ -120,7 +133,7 @@ const socialMedia = [
             width={500}
             height={600}
             draggable="false"
-            class="relative z-10 w-full max-h-[700px] rounded-3xl shadow-2xl overflow-hidden object-cover"
+            class="relative z-10 w-full h-auto max-h-[600px] object-cover rounded-3xl shadow-2xl"
             loading="eager"
           />
         </div>
