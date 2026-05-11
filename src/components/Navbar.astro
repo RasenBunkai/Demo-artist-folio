@@ -69,11 +69,11 @@ const sections = [
     </div>
 
     <div class="flex items-center gap-2">
-      <div class="hidden sm:block">
+      <div class="sm:block">
         <ThemeToggle />
       </div>
       <a
-        href="#contact"
+        href="/#contact"
         class="hidden rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 text-white shadow-sm shadow-purple-300/50 transition-all hover:scale-[1.02] hover:from-purple-700 hover:to-pink-700 dark:shadow-purple-950/40 md:inline-flex w-fit py-2"
         >Solicitar comisión</a
       >
@@ -90,17 +90,6 @@ const sections = [
         <div
           class="absolute right-0 mt-3 w-64 overflow-hidden rounded-2xl border border-purple-200/70 bg-white/95 p-2 shadow-xl shadow-purple-200/40 backdrop-blur-xl dark:border-purple-800/60 dark:bg-slate-950/95 dark:shadow-black/40"
         >
-          <div class="flex items-center justify-between px-2 py-2 sm:hidden">
-            <span
-              class="text-sm font-medium text-slate-500 dark:text-slate-400"
-            >
-              Tema
-            </span>
-            <ThemeToggle />
-          </div>
-
-          <Separator className="my-1 sm:hidden" />
-
           <div class="flex flex-col">
             {
               sections.map((section) => (
@@ -113,7 +102,7 @@ const sections = [
               ))
             }
             <a
-              href="#contact"
+              href="/#contact"
               class="text-center mt-2 w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 py-2"
               >Solicitar comisión</a
             >
