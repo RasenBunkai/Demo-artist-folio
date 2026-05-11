@@ -1,0 +1,78 @@
+---
+import LegalPageLayout from "@/layouts/LegalPageLayout.astro";
+
+const policy = [
+  {
+    title: "Información recopilada",
+    content:
+      "Este sitio puede recopilar información proporcionada voluntariamente a través del formulario de contacto, como nombre, correo electrónico, tipo de comisión, presupuesto, fecha deseada de entrega y descripción del proyecto.",
+  },
+  {
+    title: "Uso de la información",
+    content:
+      "La información enviada se utiliza únicamente para responder solicitudes, preparar cotizaciones, dar seguimiento a proyectos y mantener comunicación relacionada con la comisión solicitada.",
+  },
+  {
+    title: "Referencias visuales",
+    content:
+      "Si el cliente comparte referencias visuales, enlaces o archivos relacionados con su proyecto, estos serán utilizados únicamente para comprender mejor la solicitud y desarrollar la comisión.",
+  },
+  {
+    title: "Protección de datos",
+    content:
+      "La información recibida no será vendida, publicada ni compartida con terceros sin autorización, salvo que sea necesario para cumplir con una obligación legal o resolver una situación relacionada con el servicio.",
+  },
+  {
+    title: "Servicios externos",
+    content:
+      "El sitio puede utilizar servicios externos para procesar formularios, gestionar mensajes o recibir pagos. Cada servicio externo puede contar con sus propias políticas de privacidad y condiciones de uso.",
+  },
+  {
+    title: "Conservación de información",
+    content:
+      "Los datos enviados pueden conservarse durante el tiempo necesario para dar seguimiento a la solicitud, mantener registro del proyecto y resolver dudas posteriores relacionadas con la comisión.",
+  },
+  {
+    title: "Solicitud de eliminación",
+    content:
+      "El cliente puede solicitar la eliminación de sus datos personales enviando un mensaje directo al medio de contacto disponible en el sitio.",
+  },
+  {
+    title: "Cambios en esta política",
+    content:
+      "Esta política puede actualizarse ocasionalmente para reflejar cambios en el sitio, servicios utilizados o condiciones de operación.",
+  },
+];
+---
+
+<LegalPageLayout
+  title="Política de privacidad"
+  eyebrow="Privacidad"
+  description="Información sobre cómo se recopilan, utilizan y protegen los datos enviados a través del formulario de contacto."
+>
+  <section class="mx-auto max-w-4xl">
+    <ol
+      class="divide-y divide-purple-200/70 rounded-3xl border border-purple-200/70 bg-white/75 shadow-xl shadow-purple-200/30 backdrop-blur-xl dark:divide-purple-800/70 dark:border-purple-800/60 dark:bg-slate-950/75 dark:shadow-black/30"
+    >
+      {
+        policy.map((item, index) => (
+          <li class="grid gap-4 p-6 sm:grid-cols-[4rem_1fr] sm:p-8">
+            <span class="text-3xl font-extrabold tracking-tight text-purple-500/70 dark:text-purple-300/70">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <div>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white md:text-2xl">
+                {item.title}
+              </h4>
+
+              <p class="mt-3 text-base leading-8 text-slate-600 dark:text-slate-300">
+                {item.content}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</LegalPageLayout>

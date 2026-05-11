@@ -22,9 +22,9 @@ const socialMedia = [
   { label: "YouTube", href: "https://youtube.com/", icon: Youtube },
 ];
 const Entry = [
-  { label: "Términos de Servicio", href: "#" },
-  { label: "Política de Privacidad", href: "#" },
-  { label: "FAQ", href: "#" },
+  { label: "Términos de Servicio", href: "/terminos-de-servicio" },
+  { label: "Política de Privacidad", href: "/politicas-de-privacidad" },
+  { label: "FAQ", href: "/faq" },
 ];
 ---
 
@@ -90,12 +90,12 @@ const Entry = [
       <div class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
         <span>© 2024 Luna Artística. Hecho con mucha creatividad</span>
       </div>
-      <div class="flex flex-wrap justify-center gap-6 text-sm">
+      <div class="flex flex-wrap justify-center gap-2 text-sm">
         {
           Entry.map((entry) => (
             <a
               href={entry.href}
-              class="text-gray-600 dark:text-gray-400 hover:bg-purple-100 hover:text-purple-500 dark:hover:text-white dark:hover:bg-purple-500 transition-colors rounded-full px-3 py-1"
+              class="relative px-4 py-2 text-sm font-medium text-gray-700 rounded-full transition-all duration-200 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:shadow-md dark:text-gray-300 dark:hover:from-purple-400 dark:hover:to-pink-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2"
             >
               {entry.label}
             </a>

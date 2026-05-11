@@ -1,0 +1,73 @@
+---
+import LegalPageLayout from "@/layouts/LegalPageLayout.astro";
+
+const faq = [
+  {
+    question: "¿Cómo puedo solicitar una comisión?",
+    answer:
+      "Puedes solicitar una comisión desde el formulario de contacto del sitio. Es recomendable incluir una descripción clara de tu idea, referencias visuales, estilo deseado, cantidad de personajes, tipo de fondo y cualquier detalle importante para el proyecto.",
+  },
+  {
+    question: "¿Cuánto tarda una comisión?",
+    answer:
+      "El tiempo de entrega depende de la complejidad del proyecto. Como referencia, una comisión puede tardar entre 5 y 14 días hábiles. Los tiempos finales se confirman antes de iniciar el trabajo.",
+  },
+  {
+    question: "¿Cuántas revisiones incluye?",
+    answer:
+      "Cada paquete incluye una cantidad específica de revisiones. Las revisiones se utilizan para ajustar detalles del boceto, composición, color o elementos menores. Cambios mayores fuera del alcance inicial pueden generar un costo adicional.",
+  },
+  {
+    question: "¿Puedo usar la ilustración comercialmente?",
+    answer:
+      "El uso personal está incluido en el precio base. Si necesitas usar la obra para productos, branding, mercancía, publicidad, contenido monetizado o cualquier fin comercial, se debe cotizar una licencia comercial adicional.",
+  },
+  {
+    question: "¿Qué métodos de pago están disponibles?",
+    answer:
+      "Los métodos de pago disponibles son PayPal y transferencia bancaria. Para reservar una comisión se solicita un anticipo del 50%. El 50% restante debe cubrirse antes de recibir los archivos finales en alta resolución.",
+  },
+  {
+    question: "¿Qué archivos recibiré al finalizar?",
+    answer:
+      "Recibirás los archivos finales en alta resolución, normalmente en formato PNG y JPG. En algunos paquetes también puede incluirse una versión sin fondo o formatos adicionales, según lo acordado en la cotización.",
+  },
+  {
+    question: "¿Puedo cancelar una comisión?",
+    answer:
+      "Sí, pero las condiciones dependen del avance del proyecto. Si el trabajo ya comenzó, el anticipo puede no ser reembolsable, ya que cubre el tiempo de planeación, comunicación y desarrollo inicial.",
+  },
+];
+---
+
+<LegalPageLayout
+  title="Preguntas frecuentes"
+  eyebrow="FAQ"
+  description="Resuelve las dudas más comunes antes de solicitar una comisión personalizada."
+>
+  <section class="mx-auto max-w-4xl">
+    <ol
+      class="divide-y divide-purple-200/70 rounded-3xl border border-purple-200/70 bg-white/75 shadow-xl shadow-purple-200/30 backdrop-blur-xl dark:divide-purple-800/70 dark:border-purple-800/60 dark:bg-slate-950/75 dark:shadow-black/30"
+    >
+      {
+        faq.map((item, index) => (
+          <li class="grid gap-4 p-6 sm:grid-cols-[4rem_1fr] sm:p-8">
+            <span class="text-3xl font-extrabold tracking-tight text-purple-500/70 dark:text-purple-300/70">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <div>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white md:text-2xl">
+                {item.question}
+              </h4>
+
+              <p class="mt-3 text-base leading-8 text-slate-600 dark:text-slate-300">
+                {item.answer}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</LegalPageLayout>

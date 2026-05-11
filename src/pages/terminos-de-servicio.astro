@@ -1,0 +1,83 @@
+---
+import LegalPageLayout from "@/layouts/LegalPageLayout.astro";
+
+const terms = [
+  {
+    title: "Alcance del servicio",
+    content:
+      "El servicio consiste en la creación de ilustraciones digitales personalizadas, tales como retratos, personajes, ilustraciones, arte conceptual o comisiones especiales. El alcance exacto de cada proyecto se definirá antes de iniciar el trabajo.",
+  },
+  {
+    title: "Solicitud de comisión",
+    content:
+      "Para solicitar una comisión, el cliente debe proporcionar una descripción clara del proyecto, referencias visuales, estilo deseado, fecha estimada de entrega y cualquier requisito específico. La falta de información puede afectar la precisión de la cotización o el resultado final.",
+  },
+  {
+    title: "Pagos",
+    content:
+      "Para iniciar una comisión se requiere un anticipo del 50% del costo total. El 50% restante deberá pagarse antes de la entrega de los archivos finales. El proyecto no se considera reservado hasta recibir el anticipo.",
+  },
+  {
+    title: "Revisiones",
+    content:
+      "Cada paquete incluye una cantidad específica de revisiones. Las revisiones cubren ajustes razonables dentro del alcance original del proyecto. Cambios mayores, rediseños completos o solicitudes adicionales pueden generar un costo extra.",
+  },
+  {
+    title: "Tiempos de entrega",
+    content:
+      "Los tiempos de entrega son estimados y pueden variar según la complejidad del proyecto, la carga de trabajo actual y la rapidez con la que el cliente responda durante el proceso de revisión.",
+  },
+  {
+    title: "Cancelaciones y reembolsos",
+    content:
+      "Si el cliente cancela el proyecto antes de que inicie el trabajo, el anticipo puede ser reembolsable. Si el proyecto ya comenzó, el anticipo puede no ser reembolsable, ya que cubre el tiempo invertido en planeación, bocetaje y comunicación.",
+  },
+  {
+    title: "Uso personal y comercial",
+    content:
+      "Los precios base contemplan uso personal. Cualquier uso comercial, como venta de productos, publicidad, branding, contenido monetizado o mercancía, debe ser informado previamente y puede requerir una licencia adicional.",
+  },
+  {
+    title: "Derechos de autor",
+    content:
+      "La autoría de la obra pertenece al artista, salvo que se acuerde lo contrario por escrito. El cliente recibe permiso de uso según las condiciones acordadas para su comisión.",
+  },
+  {
+    title: "Entrega de archivos",
+    content:
+      "Los archivos finales se entregan en formato digital. Normalmente se incluyen versiones en PNG y JPG en alta resolución. Archivos editables, capas o formatos especiales no están incluidos a menos que se acuerde previamente.",
+  },
+];
+---
+
+<LegalPageLayout
+  title="Términos de servicio"
+  eyebrow="Condiciones de comisión"
+  description="Condiciones generales para solicitar, pagar, revisar y recibir una comisión artística."
+>
+  <section class="mx-auto max-w-4xl">
+    <ol
+      class="divide-y divide-purple-200/70 rounded-3xl border border-purple-200/70 bg-white/75 shadow-xl shadow-purple-200/30 backdrop-blur-xl dark:divide-purple-800/70 dark:border-purple-800/60 dark:bg-slate-950/75 dark:shadow-black/30"
+    >
+      {
+        terms.map((item, index) => (
+          <li class="grid gap-4 p-6 sm:grid-cols-[4rem_1fr] sm:p-8">
+            <span class="text-3xl font-extrabold tracking-tight text-purple-500/70 dark:text-purple-300/70">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <div>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white md:text-2xl">
+                {item.title}
+              </h4>
+
+              <p class="mt-3 text-base leading-8 text-slate-600 dark:text-slate-300">
+                {item.content}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</LegalPageLayout>

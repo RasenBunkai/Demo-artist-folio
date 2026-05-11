@@ -1,15 +1,14 @@
 ---
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import ThemeToggle from "./ThemeToggle.astro";
 import { Menu, Palette, X } from "lucide-react";
 
 const sections = [
-  { label: "Portafolio", href: "#portfolio" },
-  { label: "Precios", href: "#pricing" },
-  { label: "Qué hago", href: "#guidelines" },
-  { label: "Pagos", href: "#payments" },
-  { label: "Proceso", href: "#process" },
+  { label: "Portafolio", href: "/#portfolio" },
+  { label: "Precios", href: "/#pricing" },
+  { label: "Qué hago", href: "/#guidelines" },
+  { label: "Pagos", href: "/#payments" },
+  { label: "Proceso", href: "/#process" },
 ];
 ---
 
@@ -34,7 +33,7 @@ const sections = [
     class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-2xl border border-purple-200/70 bg-white/80 px-3 py-2.5 shadow-lg shadow-purple-200/30 backdrop-blur-xl dark:border-purple-800/60 dark:bg-slate-950/75 dark:shadow-black/30 sm:px-4"
   >
     <a
-      href="#home"
+      href="/#home"
       class="group flex min-w-fit items-center gap-2 rounded-full outline-none transition-transform hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 dark:focus-visible:ring-purple-500 dark:focus-visible:ring-offset-slate-950"
       aria-label="Ir al inicio"
     >
